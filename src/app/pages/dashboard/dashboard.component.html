@@ -1,0 +1,45 @@
+<app-nav></app-nav>
+<h3 *ngIf="!userLoginOn" class="errorMsg">Usuario NO autenticado</h3>
+  <div class="usersInfo d-flex justify-content-center align-items-center" *ngIf="userLoginOn">
+    
+    <div class="algnSearch">
+      <div *ngIf="id.invalid && (id.dirty || id.touched)" class="text-danger">
+        <div *ngIf="id.errors?. ['required']"> Id is required. </div>
+      </div>
+      <form class="d-flex" [formGroup]="userIdForm">
+        <input class="form-control me-2" type="number" min="1" placeholder="Search by ID" aria-label="Search"
+        formControlName = "id" id="id" name="searchId" required>
+        <button class="btn btn-outline-success" type="button" (click)="searchUser()">Search</button>
+      </form>
+    </div>
+    <div *ngIf="userIdData">
+      <h4>Información del Usuario</h4>
+      <p><span>ID: {{ userIdData.id }}</span></p>
+      <p><b>Username</b>: {{ userIdData.name }} <br>
+      <b>Roles</b>: [{{ userIdData.roles }}]</p>
+    </div>
+
+    <div class="algnData">
+      <form [formGroup]="sortForm" class="sortForm">
+        <label for="sort">Sort by:</label>
+        <select id="sort" formControlName="sort">
+          <option value="">None</option>
+          <option value="name">Username</option>
+          <option value="id">Id</option>
+        </select>
+        <select id="order" formControlName="order">
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+        <button type="submit" (click)="onSortChange()">Sort</button>
+      </form>
+      <div *ngIf="users && users.length > 0">
+        <h4>Usuarios</h4>
+        <ul class="getAll">
+          <li *ngFor="let user of users">
+            <span>ID: {{ user.id }}</span> - {{ user.name }} ({{ user.roles }})
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

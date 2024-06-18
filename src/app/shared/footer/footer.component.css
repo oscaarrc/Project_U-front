@@ -1,0 +1,26 @@
+.footer {
+    background-color: #243746;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  a{
+    text-decoration: none;
+    color: white;
+  }
+  
+  a:hover{
+    transition: 1s;
+    color: rgb(255, 42, 42);
+  }

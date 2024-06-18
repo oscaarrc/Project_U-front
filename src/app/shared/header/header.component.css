@@ -1,0 +1,22 @@
+.header {
+    background-color: #243746fb;
+    padding: 25px 25px;
+    text-align: center;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .header-title {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  span{
+    color: #ff4b66;;
+  }
+  

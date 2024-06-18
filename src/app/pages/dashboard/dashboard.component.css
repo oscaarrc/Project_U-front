@@ -1,0 +1,48 @@
+.errorMsg{
+    color: #ff4b66;;
+}
+
+.successMsg{
+    color: rgb(47, 255, 82);
+}
+
+h3{
+    font-size: 20px;
+    padding-top: 10rem;
+    text-align: center;
+}
+
+.usersInfo{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+span{
+    font-weight: bolder;
+    font-size: 20px;
+    color: rgb(255, 164, 60);
+}
+
+.algnData{
+    margin: 0;
+}
+
+.d-flex{
+    padding-left: 5.5em;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.algnSearch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.getAll{
+    height: 180px;
+    overflow-y: auto;
+}

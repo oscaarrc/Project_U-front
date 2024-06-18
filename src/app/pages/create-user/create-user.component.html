@@ -1,0 +1,44 @@
+<app-nav></app-nav>
+<h3 *ngIf="!userLoginOn" class="errorMsg">User NOT authenticated</h3>
+<h3 *ngIf="!isUserAdmin" class="errorMsg">User NOT authorized</h3>
+<div class="container mt-5" *ngIf="userLoginOn && isUserAdmin">
+  <div class="row justify-content-center">
+    <div class="col-md-6 algnForm">
+      <div class="card">
+        <div class="card-header">
+          Create user
+        </div>
+        <div class="card-body">
+          <form [formGroup]="registerForm">
+            <div class="form-group mb-3">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Username" formControlName = "username">
+              <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert text-danger">
+                <div *ngIf="username.errors?. ['required']"> Username is required. </div>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Password" formControlName = "password">
+              <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert text-danger">
+                <div *ngIf="password.errors?. ['required']"> Password is required. </div>
+                <div *ngIf="password.errors?.['minlength']"> Password must be at least 4 characters long. </div>
+              </div>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input checkbox-custom" type="checkbox" id="roleAdmin" formControlName = "roleAdmin">
+              <label class="form-check-label" for="roleAdmin">
+                Grant admin role
+              </label>
+            </div>
+            <div *ngIf="registerError" class="text-danger algnError">
+              {{ registerError }}
+            </div>
+            <button type="button" (click)="register()" class="btn btn-primary btn-block">Create user</button>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

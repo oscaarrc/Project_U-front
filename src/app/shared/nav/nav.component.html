@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary float-end">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" routerLink="/users">Home</a>
+          <a *ngIf="userLoginOn && isUserAdmin" class="nav-link" routerLink="/createUser">Create user</a>
+          <a *ngIf="!userLoginOn" class="nav-link active" routerLink="/login">Log in</a>
+          <a *ngIf="userLoginOn" class="nav-link" (click)="logout()" routerLink="/login">Log Out</a>
+        </div>
+      </div>
+    </div>
+
+    
+  </nav>
